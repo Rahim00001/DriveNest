@@ -1,8 +1,8 @@
-
+import errorImg1 from "../../public/errorImg1.jpg"
 const ErrorPage = () => {
     return (
         <div>
-            <h2>404 page not found</h2>
+            <img src={errorImg1} alt="Erro Img" className="w-full h-screen" />
         </div>
     );
 };
