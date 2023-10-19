@@ -9,6 +9,8 @@ import Root from './components/Root.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
 import Home from './components/Home.jsx';
 import Login from './components/Login.jsx';
+import AddProduct from './components/AddProduct';
+import Mycart from './components/Mycart';
 
 
 const router = createBrowserRouter([
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
         path: '/login',
         element: <Login></Login>
       },
+      {
+        path: '/addproduct',
+        element: <AddProduct></AddProduct>
+      },
+      {
+        path: '/mycart',
+        element: <Mycart></Mycart>
+      }
     ]
   },
 ]);
