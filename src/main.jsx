@@ -9,8 +9,11 @@ import Root from './components/Root.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
 import Home from './components/Home.jsx';
 import Login from './components/Login.jsx';
-import AddProduct from './components/AddProduct';
 import Mycart from './components/Mycart';
+import AddCar from './components/AddCar';
+import Register from './components/Register';
+import ToyotaCars from './components/toyota/ToyotaCars';
+import BrandsItem from './components/BrandsItem';
 
 
 const router = createBrowserRouter([
@@ -28,12 +31,26 @@ const router = createBrowserRouter([
         element: <Login></Login>
       },
       {
-        path: '/addproduct',
-        element: <AddProduct></AddProduct>
+        path: '/register',
+        element: <Register></Register>
+      },
+      {
+        path: '/addcar',
+        element: <AddCar></AddCar>
       },
       {
         path: '/mycart',
         element: <Mycart></Mycart>
+      },
+      {
+        path: '/brand/BMW',
+        element: <ToyotaCars></ToyotaCars>,
+        loader: () => fetch('http://localhost:5000/car')
+      },
+      {
+        path: '/brand/:brand_name',
+        element: <BrandsItem></BrandsItem>,
+        // loader: ({ params }) => fetch(`http://localhost:5000/car/${params.brand}`)
       }
     ]
   },
