@@ -3,7 +3,7 @@ import { MdOutlineDiscount } from "react-icons/md";
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 const WhyUs = () => {
     return (
-        <div>
+        <div className="mb-14">
             <h1 className="text-5xl text-center font-bold mb-7">Why Choose Us</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-5/6 mx-auto gap-5 rounded-xl p-5" style={{ backgroundImage: 'url(https://i.ibb.co/VCffbb7/why-bg.png)' }}>
                 <div className="flex flex-col items-center">
