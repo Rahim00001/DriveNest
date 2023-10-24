@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
     const { signInUser, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [loginError, setLoginError] = useState('');
+    const [success, setSuccess] = useState('');
 
     const handleLogin = e => {
         e.preventDefault();
@@ -12,6 +14,9 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+        setLoginError('');
+        setSuccess('');
 
         signInUser(email, password)
             .then(result => {
@@ -21,6 +26,7 @@ const Login = () => {
             })
             .catch(error => {
                 console.error(error);
+                setLoginError(error.message);
             })
     }
 
@@ -62,6 +68,12 @@ const Login = () => {
                             <button className="btn btn-primary mb-3">Login</button>
                             <button onClick={handleGoogleSignIn} className="btn btn-outline btn-accent">Login With Google</button>
                         </div>
+                        {
+                            loginError && <p className="text-red-600">{loginError}</p>
+                        }
+                        {
+                            success && <p className="text-green-600">{success}</p>
+                        }
                     </form>
                 </div>
             </div>

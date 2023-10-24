@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
 
     const { createUser } = useContext(AuthContext);
+    const [registerError, setRegisterError] = useState('');
+    const [success, setSuccess] = useState('');
 
     const handleRegister = e => {
         e.preventDefault();
@@ -14,13 +16,32 @@ const Register = () => {
         const photo = form.photo.value
         const password = form.password.value;
         console.log(name, email, photo, password);
+
+        setRegisterError('');
+        setSuccess('');
+
+        if (password.length < 6) {
+            setRegisterError('Password should be at least 6 characters or longer.');
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            setRegisterError('Password Should have at least one uppercase characters');
+            return
+        }
+        else if (!/[!@#$%^&*]/.test(password)) {
+            setRegisterError('Password Should have at least one special characters');
+            return
+        }
+
         // create User
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
+                setSuccess('user created successfully')
             })
-            .catch(errro => {
-                console.error(errro);
+            .catch(error => {
+                console.error(error);
+                setRegisterError(error.message);
             })
 
     }
@@ -63,6 +84,12 @@ const Register = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register</button>
                         </div>
+                        {
+                            registerError && <p className="text-red-600">{registerError}</p>
+                        }
+                        {
+                            success && <p className="text-green-600">{success}</p>
+                        }
                     </form>
                 </div>
             </div>
