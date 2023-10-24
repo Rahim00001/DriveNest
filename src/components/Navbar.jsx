@@ -1,7 +1,19 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import driveNest from "../../public/DriveNest.png"
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => console.log('logged out Successfully'))
+            .catch(error => {
+                console.error(error);
+            })
+    }
 
     const navlinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
@@ -30,7 +42,14 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                {
+                    user ? <>
+                        <span>{user.email}</span>
+                        <a onClick={handleLogOut} className="btn btn-outline">Log Out</a>
+                    </>
+                        : <Link to='/login' className="btn btn-outline">LogIN</Link>
+                }
+
             </div>
         </div>
     );

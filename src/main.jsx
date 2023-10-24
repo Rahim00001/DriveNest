@@ -14,6 +14,8 @@ import AddCar from './components/AddCar';
 import Register from './components/Register';
 import ToyotaCars from './components/toyota/ToyotaCars';
 import BrandsItem from './components/BrandsItem';
+import AuthProvider from './providers/AuthProvider';
+import PrivateRoute from './routes/PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -36,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/addcar',
-        element: <AddCar></AddCar>
+        element: <PrivateRoute><AddCar></AddCar></PrivateRoute>
       },
       {
         path: '/mycart',
@@ -58,6 +60,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
