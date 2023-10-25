@@ -13,9 +13,14 @@ import Mycart from './components/Mycart';
 import AddCar from './components/AddCar';
 import Register from './components/Register';
 import ToyotaCars from './components/toyota/ToyotaCars';
-import BrandsItem from './components/BrandsItem';
+// import BrandsItem from './components/BrandsItem';
 import AuthProvider from './providers/AuthProvider';
 import PrivateRoute from './routes/PrivateRoute';
+import BmwCars from './components/bmw/BmwCars';
+import MarcedesCars from './components/mercedes/MarcedesCars';
+import TeslaCars from './components/tesla/TeslaCars';
+import AudiCars from './components/audi/AudiCars';
+import Fordcars from './components/ford/Fordcars';
 
 
 const router = createBrowserRouter([
@@ -45,15 +50,40 @@ const router = createBrowserRouter([
         element: <Mycart></Mycart>
       },
       {
-        path: '/brand/BMW',
+        path: '/brand/Toyota',
         element: <ToyotaCars></ToyotaCars>,
         loader: () => fetch('http://localhost:5000/car')
       },
       {
-        path: '/brand/:brand_name',
-        element: <BrandsItem></BrandsItem>,
-        loader: ({ params }) => fetch(`http://localhost:5000/car/${params.brand}`)
-      }
+        path: '/brand/BMW',
+        element: <BmwCars></BmwCars>,
+        loader: () => fetch('http://localhost:5000/car')
+      },
+      {
+        path: '/brand/Mercedes-Benz',
+        element: <MarcedesCars></MarcedesCars>,
+        loader: () => fetch('http://localhost:5000/car')
+      },
+      {
+        path: '/brand/Ford',
+        element: <Fordcars></Fordcars>,
+        loader: () => fetch('http://localhost:5000/car')
+      },
+      {
+        path: '/brand/Tesla',
+        element: <TeslaCars></TeslaCars>,
+        loader: () => fetch('http://localhost:5000/car')
+      },
+      {
+        path: '/brand/Audi',
+        element: <AudiCars></AudiCars>,
+        loader: () => fetch('http://localhost:5000/car')
+      },
+      // {
+      //   path: '/brand/:brand_name',
+      //   element: <BrandsItem></BrandsItem>,
+      //   loader: () => fetch('http://localhost:5000/car/:brand_name')
+      // }
     ]
   },
 ]);
