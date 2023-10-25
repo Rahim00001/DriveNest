@@ -21,6 +21,7 @@ import MarcedesCars from './components/mercedes/MarcedesCars';
 import TeslaCars from './components/tesla/TeslaCars';
 import AudiCars from './components/audi/AudiCars';
 import Fordcars from './components/ford/Fordcars';
+import UpdateCar from './components/UpdateCar';
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
       {
         path: '/addcar',
         element: <PrivateRoute><AddCar></AddCar></PrivateRoute>
+      },
+      {
+        path: '/update/:id',
+        element: <PrivateRoute><UpdateCar></UpdateCar></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/car/${params.id}`)
       },
       {
         path: '/mycart',
