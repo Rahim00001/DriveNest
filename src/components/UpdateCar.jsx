@@ -15,7 +15,7 @@ const UpdateCar = () => {
         const rating = form.rating.value
         const updatedCar = { name, image, brand, type, price, rating };
         // send data to server site
-        fetch(`http://localhost:5000/car/${_id}`, {
+        fetch(`https://drive-nest-server-a10-8fz4qqqc2-rahim-s-projects.vercel.app/car/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

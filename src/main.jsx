@@ -49,12 +49,12 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element: <PrivateRoute><UpdateCar></UpdateCar></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/car/${params.id}`)
+        loader: ({ params }) => fetch(`https://drive-nest-server-a10-8fz4qqqc2-rahim-s-projects.vercel.app/car/${params.id}`)
       },
       {
         path: '/detiles/:id',
         element: <PrivateRoute><Detiles></Detiles></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/car/${params.id}`)
+        loader: ({ params }) => fetch(`https://drive-nest-server-a10-8fz4qqqc2-rahim-s-projects.vercel.app/car/${params.id}`)
       },
       {
         path: '/mycart',
@@ -63,32 +63,32 @@ const router = createBrowserRouter([
       {
         path: '/brand/Toyota',
         element: <ToyotaCars></ToyotaCars>,
-        loader: () => fetch('http://localhost:5000/car')
+        loader: () => fetch('https://drive-nest-server-a10-8fz4qqqc2-rahim-s-projects.vercel.app/car')
       },
       {
         path: '/brand/BMW',
         element: <BmwCars></BmwCars>,
-        loader: () => fetch('http://localhost:5000/car')
+        loader: () => fetch('https://drive-nest-server-a10-8fz4qqqc2-rahim-s-projects.vercel.app/car')
       },
       {
         path: '/brand/Mercedes-Benz',
         element: <MarcedesCars></MarcedesCars>,
-        loader: () => fetch('http://localhost:5000/car')
+        loader: () => fetch('https://drive-nest-server-a10-8fz4qqqc2-rahim-s-projects.vercel.app/car')
       },
       {
         path: '/brand/Ford',
         element: <Fordcars></Fordcars>,
-        loader: () => fetch('http://localhost:5000/car')
+        loader: () => fetch('https://drive-nest-server-a10-8fz4qqqc2-rahim-s-projects.vercel.app/car')
       },
       {
         path: '/brand/Tesla',
         element: <TeslaCars></TeslaCars>,
-        loader: () => fetch('http://localhost:5000/car')
+        loader: () => fetch('https://drive-nest-server-a10-8fz4qqqc2-rahim-s-projects.vercel.app/car')
       },
       {
         path: '/brand/Audi',
         element: <AudiCars></AudiCars>,
-        loader: () => fetch('http://localhost:5000/car')
+        loader: () => fetch('https://drive-nest-server-a10-8fz4qqqc2-rahim-s-projects.vercel.app/car')
       }
     ]
   },

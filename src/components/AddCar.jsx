@@ -14,7 +14,7 @@ const AddCar = () => {
         console.log(newCar);
 
         // send data to server site
-        fetch('http://localhost:5000/car', {
+        fetch('https://drive-nest-server-a10-8fz4qqqc2-rahim-s-projects.vercel.app/car', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
