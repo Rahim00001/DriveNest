@@ -13,7 +13,6 @@ import Mycart from './components/Mycart';
 import AddCar from './components/AddCar';
 import Register from './components/Register';
 import ToyotaCars from './components/toyota/ToyotaCars';
-// import BrandsItem from './components/BrandsItem';
 import AuthProvider from './providers/AuthProvider';
 import PrivateRoute from './routes/PrivateRoute';
 import BmwCars from './components/bmw/BmwCars';
@@ -90,12 +89,7 @@ const router = createBrowserRouter([
         path: '/brand/Audi',
         element: <AudiCars></AudiCars>,
         loader: () => fetch('http://localhost:5000/car')
-      },
-      // {
-      //   path: '/brand/:brand_name',
-      //   element: <BrandsItem></BrandsItem>,
-      //   loader: () => fetch('http://localhost:5000/car/:brand_name')
-      // }
+      }
     ]
   },
 ]);

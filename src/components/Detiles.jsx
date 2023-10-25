@@ -3,7 +3,6 @@ import { Link, useLoaderData } from "react-router-dom";
 const Detiles = () => {
     const car = useLoaderData();
     const { image, name, price, brand, type, description } = car;
-    console.log(car);
     return (
         <div className="flex justify-center">
             <div className="card card-compact w-96 bg-base-100 shadow-xl">

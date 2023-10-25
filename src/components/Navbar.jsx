@@ -6,8 +6,6 @@ import { AuthContext } from "../providers/AuthProvider";
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    // console.log(user.photoURL);
-
     const handleLogOut = () => {
         logOut()
             .then(() => console.log('logged out Successfully'))

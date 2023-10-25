@@ -4,7 +4,6 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const ToyotaCar = ({ cars }) => {
-    console.log(cars);
     const { brand, image, name, price, rating, type, description, _id } = cars;
     return (
         <div className="card bg-base-100 shadow-xl">
