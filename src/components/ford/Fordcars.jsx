@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Fordcars = () => {
     const ford = useLoaderData();
-    const fordCars = ford.filter(car => car.brand == "FORD");
+    const fordCars = ford.filter(car => car.brand == "Ford");
     console.log(fordCars);
     return (
         <div>
