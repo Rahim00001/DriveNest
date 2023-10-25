@@ -24,7 +24,7 @@ const ToyotaCar = ({ cars }) => {
                     <div className="badge badge-outline bg-yellow-400 text-white font-medium">{type}</div>
                 </div>
                 <div className="flex justify-center gap-5">
-                    <button className="btn btn-outline btn-primary">Detiles</button>
+                    <Link to={`/detiles/${_id}`}><button className="btn btn-outline btn-primary">Detiles</button></Link>
                     <Link to={`/update/${_id}`}> <button className="btn btn-outline btn-secondary">Update</button></Link>
                 </div>
             </div>

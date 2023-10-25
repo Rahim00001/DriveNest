@@ -22,6 +22,7 @@ import TeslaCars from './components/tesla/TeslaCars';
 import AudiCars from './components/audi/AudiCars';
 import Fordcars from './components/ford/Fordcars';
 import UpdateCar from './components/UpdateCar';
+import Detiles from './components/Detiles';
 
 
 const router = createBrowserRouter([
@@ -52,8 +53,13 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:5000/car/${params.id}`)
       },
       {
+        path: '/detiles/:id',
+        element: <PrivateRoute><Detiles></Detiles></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/car/${params.id}`)
+      },
+      {
         path: '/mycart',
-        element: <Mycart></Mycart>
+        element: <PrivateRoute><Mycart></Mycart></PrivateRoute>
       },
       {
         path: '/brand/Toyota',
